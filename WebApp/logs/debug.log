@@ -1,0 +1,60 @@
+INFO 2022-12-19 14:08:20,078 basehttp "GET / HTTP/1.1" 200 23
+WARNING 2022-12-19 14:08:20,156 log Not Found: /favicon.ico
+INFO 2022-12-19 14:08:35,342 autoreload /home/diptam.paul/Documents/PythonTasks/Bonds/main/WebApp/main/views.py changed, reloading.
+INFO 2022-12-19 14:08:35,720 autoreload Watching for file changes with StatReloader
+INFO 2022-12-19 14:08:38,030 basehttp "GET / HTTP/1.1" 200 23
+INFO 2022-12-19 15:27:39,893 autoreload Watching for file changes with StatReloader
+INFO 2022-12-19 15:27:45,052 views Home Screen
+INFO 2022-12-19 15:27:45,053 basehttp "GET / HTTP/1.1" 200 23
+INFO 2022-12-19 15:27:50,766 views Home Screen
+INFO 2022-12-19 15:27:50,768 basehttp "GET / HTTP/1.1" 200 23
+INFO 2022-12-19 15:28:21,564 autoreload /home/diptam.paul/Documents/PythonTasks/Bonds/main/WebApp/WebApp/settings.py changed, reloading.
+INFO 2022-12-19 15:28:21,911 autoreload Watching for file changes with StatReloader
+INFO 2022-12-19 15:28:23,662 views Home Screen
+INFO 2022-12-19 15:28:23,664 basehttp "GET / HTTP/1.1" 200 23
+WARNING 2022-12-19 15:28:23,727 log Not Found: /favicon.ico
+INFO 2022-12-19 15:28:31,299 autoreload /home/diptam.paul/Documents/PythonTasks/Bonds/main/WebApp/WebApp/settings.py changed, reloading.
+INFO 2022-12-19 15:28:31,621 autoreload Watching for file changes with StatReloader
+INFO 2022-12-19 15:39:15,818 autoreload Watching for file changes with StatReloader
+INFO 2022-12-19 15:39:21,111 basehttp "GET / HTTP/1.1" 200 23
+WARNING 2022-12-19 15:39:21,187 log Not Found: /favicon.ico
+INFO 2022-12-19 15:39:22,574 basehttp "GET / HTTP/1.1" 200 23
+INFO 2022-12-19 15:39:48,361 autoreload /home/diptam.paul/Documents/PythonTasks/Bonds/main/WebApp/WebApp/settings.py changed, reloading.
+INFO 2022-12-19 15:39:50,142 autoreload Watching for file changes with StatReloader
+INFO 2022-12-19 15:39:52,598 basehttp "GET / HTTP/1.1" 200 23
+INFO 2022-12-19 15:40:04,582 autoreload /home/diptam.paul/Documents/PythonTasks/Bonds/main/WebApp/WebApp/settings.py changed, reloading.
+INFO 2022-12-19 15:40:04,985 autoreload Watching for file changes with StatReloader
+INFO 2022-12-19 15:40:07,224 autoreload /home/diptam.paul/Documents/PythonTasks/Bonds/main/WebApp/WebApp/settings.py changed, reloading.
+INFO 2022-12-19 15:40:07,564 autoreload Watching for file changes with StatReloader
+INFO 2022-12-19 15:40:15,678 basehttp "GET / HTTP/1.1" 200 23
+INFO 2022-12-19 15:40:50,288 autoreload /home/diptam.paul/Documents/PythonTasks/Bonds/main/WebApp/WebApp/settings.py changed, reloading.
+INFO 2022-12-19 15:40:50,736 autoreload Watching for file changes with StatReloader
+INFO 2022-12-19 15:40:56,973 autoreload /home/diptam.paul/Documents/PythonTasks/Bonds/main/WebApp/main/views.py changed, reloading.
+INFO 2022-12-19 15:40:57,326 autoreload Watching for file changes with StatReloader
+INFO 2022-12-19 15:41:06,623 autoreload /home/diptam.paul/Documents/PythonTasks/Bonds/main/WebApp/main/views.py changed, reloading.
+INFO 2022-12-19 15:41:06,959 autoreload Watching for file changes with StatReloader
+INFO 2022-12-19 15:41:08,322 views Home Screen
+ERROR 2022-12-19 15:41:08,387 log Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/diptam.paul/Documents/PythonTasks/Bonds/env/lib/python3.8/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/diptam.paul/Documents/PythonTasks/Bonds/env/lib/python3.8/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/diptam.paul/Documents/PythonTasks/Bonds/env/lib/python3.8/site-packages/django/views/decorators/csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/home/diptam.paul/Documents/PythonTasks/Bonds/env/lib/python3.8/site-packages/django/views/generic/base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "/home/diptam.paul/Documents/PythonTasks/Bonds/env/lib/python3.8/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "/home/diptam.paul/Documents/PythonTasks/Bonds/env/lib/python3.8/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/home/diptam.paul/Documents/PythonTasks/Bonds/env/lib/python3.8/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/home/diptam.paul/Documents/PythonTasks/Bonds/env/lib/python3.8/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "/home/diptam.paul/Documents/PythonTasks/Bonds/main/WebApp/main/views.py", line 19, in get
+    assert 1==0
+AssertionError
+ERROR 2022-12-19 15:41:08,389 basehttp "GET / HTTP/1.1" 500 93443
+INFO 2022-12-19 15:41:24,383 autoreload /home/diptam.paul/Documents/PythonTasks/Bonds/main/WebApp/main/views.py changed, reloading.
+INFO 2022-12-19 15:41:24,782 autoreload Watching for file changes with StatReloader

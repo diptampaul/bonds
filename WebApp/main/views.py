@@ -7,10 +7,13 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.parsers import FileUploadParser
 import os
+import logging
+logger = logging.getLogger('django')
 
 # Create your views here.
 class HomeView(APIView):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     def get(self, request):
+        logger.info("Home Screen")
         return HttpResponse("Welcome !! Diptam Bonds")
