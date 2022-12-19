@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main'
+    'main',
+    'dashboard'
 ]
 
 MIDDLEWARE = [
@@ -89,16 +90,34 @@ WSGI_APPLICATION = 'WebApp.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.postgresql',
-       'NAME': '',
-       'USER': '<database_username>',
-       'PASSWORD': '<password>',
-       'HOST': '<database_hostname_or_ip>',
-       'PORT': '5432',
-   }
+
+#Postgres DB
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'vgu',  #Name of the DataBase #VGUExamSys
+#         'USER': 'postgres',
+#         'PASSWORD': '1234',
+#         'HOST': 'localhost'
+#    }
+# }
+
+
+#MYSQL DB
+DATABASES = {  
+    'default': {  
+        'ENGINE': 'django.db.backends.mysql',  
+        'NAME': 'bonds',  
+        'USER': 'root',  
+        'PASSWORD': 'password',  
+        'HOST': '127.0.0.1',  
+        'PORT': '3306',  
+        'OPTIONS': {  
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"  
+        }  
+    }  
 }
+
 
 
 # Password validation
