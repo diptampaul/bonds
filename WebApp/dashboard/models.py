@@ -31,3 +31,17 @@ class UserDetails(models.Model):
     district = models.CharField(max_length=30)
     state = models.CharField(max_length=20)
     pincode = models.CharField(max_length=8)
+
+    def __str__(self):
+        return(str(self.user_id) + ' ' + str(self.phone_no) + ' ' + str(self.pincode))
+
+class UserBankDetails(models.Model):
+    user_id = models.ForeignKey(Profile, to_field='user_id', on_delete=models.CASCADE)
+    bank_name = models.CharField(max_length=50)
+    account_number = models.CharField(max_length=50)
+    account_holder_name = models.CharField(max_length=80)
+    IFSC_code = models.CharField(max_length=15)
+    account_type = models.CharField(max_length=10)
+
+    def __str__(self):
+        return(str(self.user_id) + ' ' + str(self.bank_name) + ' ' + str(self.account_type))
