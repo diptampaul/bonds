@@ -35,6 +35,7 @@ class UserDetails(models.Model):
     def __str__(self):
         return(str(self.user_id) + ' ' + str(self.phone_no) + ' ' + str(self.pincode))
 
+
 class UserBankDetails(models.Model):
     user_id = models.ForeignKey(Profile, to_field='user_id', on_delete=models.CASCADE)
     bank_name = models.CharField(max_length=50)
@@ -45,3 +46,9 @@ class UserBankDetails(models.Model):
 
     def __str__(self):
         return(str(self.user_id) + ' ' + str(self.bank_name) + ' ' + str(self.account_type))
+
+
+class UserLogin(models.Model):
+    user_id = models.ForeignKey(Profile, to_field='user_id', on_delete=models.CASCADE)
+    login_time = models.DateTimeField(auto_now_add=True)
+    last_login_time = models.DateTimeField(null=True)
