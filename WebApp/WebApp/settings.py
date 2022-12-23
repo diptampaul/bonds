@@ -21,6 +21,10 @@ environ.Env.read_env()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 #Logger
+# log_file_name = os.path.join(BASE_DIR, 'logs', 'debug.log')
+# file_stats = os.stat(log_file_name)
+# file_size = file_stats.st_size / (1024 * 1024)
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,

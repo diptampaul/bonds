@@ -58,3 +58,204 @@ AssertionError
 ERROR 2022-12-19 15:41:08,389 basehttp "GET / HTTP/1.1" 500 93443
 INFO 2022-12-19 15:41:24,383 autoreload /home/diptam.paul/Documents/PythonTasks/Bonds/main/WebApp/main/views.py changed, reloading.
 INFO 2022-12-19 15:41:24,782 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 13:57:13,187 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 13:57:21,888 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 13:57:25,279 autoreload Watching for file changes with StatReloader
+ERROR 2022-12-23 13:58:12,770 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py", line 18, in get
+    if request.user.is_authenticated():
+TypeError: 'bool' object is not callable
+ERROR 2022-12-23 13:58:12,789 basehttp "GET / HTTP/1.1" 500 98879
+INFO 2022-12-23 13:59:06,680 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 13:59:09,371 autoreload Watching for file changes with StatReloader
+ERROR 2022-12-23 13:59:12,122 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py", line 22, in get
+    return JsonResponse({
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\http\response.py", line 691, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Users\dipta\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 234, in dumps
+    return cls(
+TypeError: 'int' object is not callable
+ERROR 2022-12-23 13:59:12,126 basehttp "GET / HTTP/1.1" 500 108121
+INFO 2022-12-23 14:00:03,431 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:00:05,494 autoreload Watching for file changes with StatReloader
+ERROR 2022-12-23 14:00:09,934 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py", line 22, in get
+    return JsonResponse({
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\http\response.py", line 691, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Users\dipta\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 234, in dumps
+    return cls(
+TypeError: 'int' object is not callable
+ERROR 2022-12-23 14:00:09,938 basehttp "GET / HTTP/1.1" 500 108154
+INFO 2022-12-23 14:00:31,370 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:00:33,307 autoreload Watching for file changes with StatReloader
+ERROR 2022-12-23 14:00:39,085 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py", line 22, in get
+    return JsonResponse({
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\http\response.py", line 691, in __init__
+    data = json.dumps(data, cls=encoder, **json_dumps_params)
+  File "C:\Users\dipta\AppData\Local\Programs\Python\Python39\lib\json\__init__.py", line 234, in dumps
+    return cls(
+TypeError: 'int' object is not callable
+ERROR 2022-12-23 14:00:39,090 basehttp "GET / HTTP/1.1" 500 108157
+INFO 2022-12-23 14:00:59,621 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:01:02,317 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 14:01:05,073 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:01:07,475 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 14:01:12,029 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:01:14,843 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 14:01:18,417 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:01:20,248 autoreload Watching for file changes with StatReloader
+ERROR 2022-12-23 14:01:25,579 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py", line 23, in get
+    return JsonResponse(json.dumps({
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\http\response.py", line 684, in __init__
+    raise TypeError(
+TypeError: In order to allow non-dict objects to be serialized set the safe parameter to False.
+ERROR 2022-12-23 14:01:25,586 basehttp "GET / HTTP/1.1" 500 103771
+INFO 2022-12-23 14:01:40,162 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:01:42,384 autoreload Watching for file changes with StatReloader
+ERROR 2022-12-23 14:01:43,388 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\views\decorators\csrf.py", line 54, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\django\views\generic\base.py", line 103, in view
+    return self.dispatch(request, *args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\env\lib\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+  File "C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py", line 19, in get
+    if request.user.is_authenticated():
+TypeError: 'bool' object is not callable
+ERROR 2022-12-23 14:01:43,392 basehttp "GET / HTTP/1.1" 500 98902
+INFO 2022-12-23 14:01:54,349 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:01:56,363 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 14:02:37,866 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:02:40,102 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 14:02:41,428 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:02:43,363 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 14:02:59,354 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:03:01,801 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 14:03:05,205 basehttp "GET / HTTP/1.1" 200 78
+INFO 2022-12-23 14:03:12,139 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:03:13,827 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 14:03:18,789 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:03:21,499 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 14:03:23,771 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:03:25,361 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 14:03:27,598 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 14:03:29,609 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 14:03:32,817 basehttp "GET / HTTP/1.1" 203 76
+INFO 2022-12-23 14:03:34,700 basehttp "GET / HTTP/1.1" 203 76
+INFO 2022-12-23 16:41:08,820 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 16:41:10,919 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 16:54:11,797 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 16:54:14,012 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 17:21:32,419 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 17:37:18,502 basehttp "GET / HTTP/1.1" 202 75
+INFO 2022-12-23 17:55:07,833 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 17:55:08,679 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 17:55:38,089 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 17:55:38,687 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 17:55:43,980 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 17:55:44,922 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 17:55:51,657 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 17:55:52,311 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 17:56:08,183 autoreload C:\Users\dipta\Documents\PythonTasks\Bonds\main\WebApp\main\views.py changed, reloading.
+INFO 2022-12-23 17:56:08,861 autoreload Watching for file changes with StatReloader
+INFO 2022-12-23 17:56:37,145 basehttp "GET / HTTP/1.1" 202 76

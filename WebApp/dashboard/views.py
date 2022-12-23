@@ -1,4 +1,4 @@
-from django.http.response import HttpResponse
+from django.http.response import HttpResponse, JsonResponse
 from django.utils import timezone
 from django.core.exceptions import BadRequest
 from django.views.decorators.csrf import csrf_exempt
@@ -15,4 +15,11 @@ class DashboardView(APIView):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     def get(self, request):
-        return HttpResponse("Welcome !! Diptam Bonds")
+        if request.user.is_authenticated():
+            return HttpResponse("Welcome !! Diptam Bonds")
+        else:
+            return JsonResponse({
+                'errorCode': 1,
+                'message': "User is not authenticated",
+                'isLogined': False,
+            }, status.HTTP_203_NON_AUTHORITATIVE_INFORMATION)
