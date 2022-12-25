@@ -1,11 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.utils import timezone
+
 
 # Create your models here.
 class Profile(models.Model):
-    user_id = models.IntegerField(primary_key=True)
+    user_id = models.AutoField(primary_key=True)
     photo = models.FileField(upload_to='dashboard/user_photo', null=True)
     email = models.CharField(max_length=50, null=False)
-    username = models.CharField(max_length=20, null=False)
     first_name = models.CharField(max_length=30, null=False)
     last_name = models.CharField(max_length=30, null=False)
     password = models.CharField(max_length=50, null=False)
@@ -14,7 +16,11 @@ class Profile(models.Model):
     created_timestamp = models.DateTimeField(blank=False, auto_now_add=True)
     
     def __str__(self):
-        return(str(self.username) + ' ' + str(self.email))
+        return(str(self.user_id) + ' ' + str(self.email))
+
+class ProfileUserMap(models.Model):
+    customer_id = models.ForeignKey(Profile, to_field='user_id', on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, default='NULL')
     
     
 class UserKyc(models.Model):
@@ -25,7 +31,9 @@ class UserKyc(models.Model):
     
 class UserDetails(models.Model):
     user_id = models.ForeignKey(Profile, to_field='user_id', on_delete=models.CASCADE)
+    email_verified = models.BooleanField(default=False)
     phone_no = models.IntegerField()
+    dateofbirth = models.DateTimeField(default=timezone.now)
     address1 = models.CharField(max_length=50)
     address2 = models.CharField(max_length=50)
     district = models.CharField(max_length=30)

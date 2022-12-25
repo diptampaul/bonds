@@ -1,1 +1,6 @@
 mkdb name Bonds
+python .\first_project\manage.py createsuperuser
+admin.site.register(shorturl)
+
+SuperUser = diptampaul
+123456
