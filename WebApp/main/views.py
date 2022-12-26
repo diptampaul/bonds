@@ -16,13 +16,4 @@ class HomeView(APIView):
     BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     def get(self, request):
-        logger.info(request.user)
-        if request.user.is_authenticated():
-            logger.info("Home Screen")
-            return HttpResponse("Welcome !! Diptam Bonds")
-        else:
-            return JsonResponse({
-                'errorCode': 0,
-                'message': "User is not authenticated",
-                'isLogined': False,
-            }, status=202)
+        return HttpResponse("Welcome !! Diptam Bonds")
