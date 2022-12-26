@@ -2,6 +2,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
+
 import 'package:finnone/assets/backend-api.dart' as backend;
 import 'package:finnone/main/appbarwithtitle.dart';
 import 'package:finnone/main/internal_server_error.dart';
@@ -62,6 +64,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 snackbarKey.currentState?.showSnackBar(snackBar);
               }
               else{
+                final prefs = await SharedPreferences.getInstance();
+                await prefs.setString('loginToken', data["token"].toString());
                 Navigator.pushReplacementNamed(context, '/');
               }
             }
@@ -252,7 +256,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 children: [
                                   TextButton(
                                     onPressed: () {
-                                      Navigator.pushReplacementNamed(context, '/sign-in');
+                                      Navigator.popUntil(context, ModalRoute.withName('/sign-in'));
                                     },
                                     style: const ButtonStyle(),
                                     child: const Text(

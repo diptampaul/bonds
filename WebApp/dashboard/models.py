@@ -58,5 +58,6 @@ class UserBankDetails(models.Model):
 
 class UserLogin(models.Model):
     user_id = models.ForeignKey(Profile, to_field='user_id', on_delete=models.CASCADE)
+    login_token = models.CharField(max_length=10, default=None, null=True)
     login_time = models.DateTimeField(auto_now_add=True)
     last_login_time = models.DateTimeField(null=True)

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
   final Color backgroundColor = Colors.red;
@@ -23,9 +24,13 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget{
         ),
 
         IconButton(
-          icon: const Icon(Icons.person),
-          onPressed: (){
+          icon: const Icon(Icons.logout_rounded),
+          onPressed: () async {
             //action for user icon button
+            final prefs = await SharedPreferences.getInstance();
+            // Remove data for the 'counter' key.
+            final success = await prefs.remove('loginToken');
+            Navigator.pushReplacementNamed(context, '/');
           },
         )
       ],

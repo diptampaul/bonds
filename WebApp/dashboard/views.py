@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
 from rest_framework.parsers import FileUploadParser
 from .models import *
+from .utils import random_char
 import os
 import logging
 import json
@@ -51,23 +52,24 @@ class SignIn(APIView):
         email = received_json_data['email'].lower()
         password = received_json_data['password']
         logger.info(f"Login Request => email: {email}")
-        user = auth.authenticate(email=email, password=password)
+        user = auth.authenticate(username=email, password=password)
         user_obj = ProfileUserMap.objects.filter(user=user)
         if user is not None:
             if user_obj:
                 customer_id = user_obj[0].customer_id    
-                auth.login(request, user)
                 logger.info(f"Login Successfully")
                 #Update login table
                 user_login_obj = UserLogin.objects.get(user_id=customer_id)
                 user_login_obj.last_login_time = user_login_obj.login_time
                 user_login_obj.login_time = timezone.now()
+                token_id = user_login_obj.login_token
                 user_login_obj.save()
                 return JsonResponse(
                     {
                         'errorCode': 0,
                         'message': "User is authenticated",
                         'isLogined': True,
+                        'token': token_id,
                     }, status=202)
         
         logger.info(f"Login Failed")
@@ -99,15 +101,15 @@ class SignUp(APIView):
 
             profile_obj = Profile(email=email, first_name=first_name, last_name=last_name,password=password, is_active=True, is_verified=False)
             profile_obj.save()
+            user_id = profile_obj.user_id
 
             profile_user_map_obj = ProfileUserMap(user=user, customer_id=profile_obj)
             profile_user_map_obj.save()
 
-            user_login_obj = UserLogin(user_id=profile_obj, login_time=timezone.now())
+            token_id  = f"{random_char(8)}{user_id}"
+            user_login_obj = UserLogin(user_id=profile_obj, login_time=timezone.now(), login_token=token_id)
             user_login_obj.save()
 
-            #login the user
-            auth.login(request, user)
             logger.info(f"Sign up and Login Successfully")
 
             return JsonResponse(
@@ -115,6 +117,7 @@ class SignUp(APIView):
                         'errorCode': 0,
                         'message': "User is registered and logged in",
                         'isLogined': True,
+                        'token': token_id,
                     }, status=202)
 
         except Exception as e:

@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:finnone/assets/backend-api.dart' as backend;
 import 'package:finnone/main/appbarwithicons.dart';
@@ -17,42 +18,19 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   bool showSpinner = false;
-  bool isBackendConnected = true;
-  bool isLogin = false;
+  bool isLogin = true;
+
 
   Future getLoginStatus() async{
-    setState(() {
-      showSpinner = true;
-    });
-    var request = http.Request('GET', Uri.parse(backend.HOME));
-    try {
-      http.StreamedResponse response = await request.send();
-      if (response.statusCode == 202) {
-        Map<String,dynamic> data = jsonDecode(await response.stream.bytesToString());
-        //Check Login Status
-        print(data);
-        if(data["isLogined"] == false){
-          Navigator.pushReplacementNamed(context, '/sign-in');
-        }else{
-          isLogin = true;
-        }
-      }else {
-        setState(() {
-          isBackendConnected = false;
-        });
-      }
-    }on Exception catch (exception) {
-      setState(() {
-        isBackendConnected = false;
-      });
-    } catch (error) {
-      setState(() {
-        isBackendConnected = false;
-      });
+    final prefs = await SharedPreferences.getInstance();
+    final String? token = prefs.getString('loginToken');
+    print(token);
+    if(token==null){
+      isLogin = false;
+      Navigator.pushReplacementNamed(context, '/sign-in');
+    }else{
+      isLogin = true;
     }
-    setState(() {
-      showSpinner = false;
-    });
   }
 
 
@@ -67,10 +45,10 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return ModalProgressHUD(
       inAsyncCall: showSpinner,
-      child: isBackendConnected == false ? const ErrorScreen() : Scaffold(
+      child: Scaffold(
         backgroundColor: Colors.grey[900],
         appBar: CustomAppBar(title: const Text('FinnOne'), appBar: AppBar(),),
-        body: isLogin == false ? const ErrorScreen() : Container(
+        body: isLogin == false ? Container() : Container(
           child: Container(
             child: Text("User Logged In"),
           ),
