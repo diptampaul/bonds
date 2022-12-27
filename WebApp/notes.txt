@@ -1,5 +1,6 @@
 mkdb name Bond
-git rm -r --cached [folder_name]
+git rm -rf --cached .
+git rm --cached filename
 
 python .\first_project\manage.py createsuperuser
 admin.site.register(shorturl)
