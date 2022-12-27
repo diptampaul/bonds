@@ -30,6 +30,10 @@ class _SignInScreenState extends State<SignInScreen> {
     setState(() {
       showSpinner = true;
     });
+    final prefs = await SharedPreferences.getInstance();
+    // Remove data for the 'counter' key.
+    final success = await prefs.remove('authVerification');
+
     var email = _emailTextEditor.text;
     if (email.contains("@") & email.contains(".")){
       var password = _passwordTextEditor.text;
@@ -51,7 +55,7 @@ class _SignInScreenState extends State<SignInScreen> {
           print(data);
           if(data["isLogined"] == false){
             print("Sign In Failed");
-            SnackBar snackBar = showMessage("Oh Snaps !!", "Invalid Email or Password", Colors.redAccent, 2);
+            SnackBar snackBar = showMessage("Oh Snaps !!", "Invalid Email or Password\nTry resetting your password", Colors.redAccent, 2);
             snackbarKey.currentState?.showSnackBar(snackBar);
           }
           else{
@@ -182,7 +186,7 @@ class _SignInScreenState extends State<SignInScreen> {
                                     TextButton(
                                         onPressed: () {Navigator.pushNamed(context, '/reset-password');},
                                         child: Text(
-                                          'Forgot Password',
+                                          'Forgot Password/Pin',
                                           style: TextStyle(
                                             decoration: TextDecoration.underline,
                                             color: Colors.grey[850],

@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from rest_framework.views import APIView
 from rest_framework.parsers import FileUploadParser
 from .models import *
-from .utils import random_char
+from .utils import random_char, reset_password_email
 import os
 import logging
 import json
@@ -45,8 +45,6 @@ class GetUserNames(APIView):
            'usernames': usernames,}, status=202)
 
 class SignIn(APIView):
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
     def post(self, request):
         received_json_data=json.loads(request.body)
         email = received_json_data['email'].lower()
@@ -82,8 +80,6 @@ class SignIn(APIView):
 
 
 class SignUp(APIView):
-    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
     def post(self, request):
         received_json_data=json.loads(request.body)
         first_name = received_json_data['first_name']
@@ -123,4 +119,58 @@ class SignUp(APIView):
         except Exception as e:
             logger.info(f"Sign Up Failed {e}")
             return JsonResponse({'errorCode': 1,
+                    'message': str(e),}, status=202)
+
+class ResetPassword(APIView):
+    def post(self, request):
+        received_json_data=json.loads(request.body)
+        email = received_json_data['email']
+        dropdownvalue = received_json_data['dropdownvalue']
+        new_password = received_json_data['new_password']
+        logger.info(f"{dropdownvalue} Request => email: {email}")
+
+        try:
+            if dropdownvalue == "Reset Password":
+                user_obj = User.objects.get(email=email)
+                user_obj.set_password(new_password)
+                user_obj.save()
+
+                profile_obj = Profile.objects.get(email=email)
+                profile_obj.password = new_password
+                profile_obj.save()
+            elif dropdownvalue == "Reset Pin":
+                profile_obj = Profile.objects.get(email=email)
+                profile_obj.login_pin = new_password
+                profile_obj.save()
+            else:
+                raise BadRequest("Invalid dropdownvalue")
+
+            return JsonResponse({'errorCode': 0,
+                    'message': "Reset Successfully",}, status=202)
+
+        except Exception as e:
+            logger.info(f"Reset Password Failed ; Reason - {e}")
+            return JsonResponse({'errorCode': 1,
+                    'message': str(e),}, status=202)
+
+
+class EmailVerify(APIView):
+    def post(self, request):
+        received_json_data=json.loads(request.body)
+        email = received_json_data['email']
+        authToken = received_json_data['authToken']
+        logger.info(f"Email Verify Request => email: {email}")
+
+        try:
+            if User.objects.filter(email=email).exists():
+                profile_obj = Profile.objects.get(email=email)
+                first_name = profile_obj.first_name
+                reset_password_email(email, first_name, authToken)
+                return JsonResponse({'errorCode': 0,
+                    'message': "Success",}, status=202)
+            else:
+                raise BadRequest("Email id is not in use")
+        except Exception as e:
+            logger.info(f"Reset Password Failed ; Reason - {e}")
+            return JsonResponse({'errorCode': 0,
                     'message': str(e),}, status=202)

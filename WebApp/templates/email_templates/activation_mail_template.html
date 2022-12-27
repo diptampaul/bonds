@@ -1,0 +1,18 @@
+<div class="content" style="position:relative; box-sizing: border-box; width: 100%; font-size: 1.2rem; background: #b9a07e; padding-left: 20px; overflow-wrap: break-word; padding-right: 20px; color: rgb(27, 26, 26)">
+    Hi <b>{{context.first_name}}</b>, 
+    <br> <br>
+    Thank You for registering with us. Our proctors are verifying your details, meanwhile, you can click on the below link or paste the below link to your browser to verify your email address. 
+    <br> <br>
+    <div style="text-align: center;">
+        <a href="http://127.0.0.1:8000/user/verify/{{context.token}}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color:rgb(68, 60, 50)">Click Here </a> 
+        OR paste the below link<br> <br>
+        <a href="http://127.0.0.1:8000/user/verify/{{context.token}}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color:rgb(68, 60, 50)">http://127.0.0.1:8000/user/verify/{{context.token}}</a>
+    </div>
+    <br>
+    Best,<br>
+    <b>FinnOne.in <br>
+    Invest in Future</b>
+    <br> <br> <hr> <br> 
+    <b>** NOTE: This is a system-generated mail. Don't reply to this mail id. Once your email id is verified from your side, all our future communications with you will be done on this {{context.email}}. If you didn't register with us, kindly ignore this mail. **</b>
+    <br> <br>
+</div>
