@@ -28,7 +28,7 @@ class HomeView(APIView):
             login_obj = UserLogin.objects.get(login_token=login_token)
             profile_obj = Profile.objects.get(user_id=login_obj.user_id.user_id)
             print(profile_obj.login_pin)
-            if profile_obj.login_pin == None or profile_obj.login_pin == "":
+            if profile_obj.login_pin == None or profile_obj.login_pin == "" or len(str(profile_obj.login_pin)) < 6:
                 return JsonResponse({'errorCode': 2,
                     'message': "Ask for login pin",}, status=202)
             else:

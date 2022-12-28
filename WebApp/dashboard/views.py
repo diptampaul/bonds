@@ -184,9 +184,16 @@ class AddLoginPin(APIView):
 
         try:
             if str(login_pin).isdigit() and len(str(login_pin)) == 6:
-                pass
+                login_obj = UserLogin.objects.get(login_token=login_token)
+                profile_obj = Profile.objects.get(user_id=login_obj.user_id.user_id)
+                profile_obj.login_pin = int(login_pin)
+                profile_obj.save()
+
+                return JsonResponse({'errorCode': 0,
+                    'message': "Pin Created Successfully",}, status=202)
             else:
                 raise BadRequest("INVALID PIN FORMAT")
+                
         except Exception as e:
             logger.info(f"Email Verification Failed ; Reason - {e}")
             return JsonResponse({'errorCode': 1,

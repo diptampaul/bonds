@@ -6,7 +6,7 @@ from django.utils import timezone
 # Create your models here.
 class Profile(models.Model):
     user_id = models.AutoField(primary_key=True)
-    photo = models.FileField(upload_to='dashboard/user_photo', null=True)
+    photo = models.FileField(upload_to='dashboard/user_photo', null=True, blank=True)
     email = models.CharField(max_length=50, null=False)
     first_name = models.CharField(max_length=30, null=False)
     last_name = models.CharField(max_length=30, null=True)

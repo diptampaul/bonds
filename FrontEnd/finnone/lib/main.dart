@@ -26,24 +26,12 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/' : (context) => const HomeScreen(),
+        '/main' : (context) => const HomeScreen(),
         '/sign-in' : (context) => const SignInScreen(),
         '/sign-up' : (context) => const SignUpScreen(),
         '/reset-password' : (context) => const ResetPasswordScreen(),
       },
     );
-    // return FutureBuilder(
-    //     future: SharedPreferences.getInstance(),
-    //     builder:
-    //         (BuildContext context, AsyncSnapshot<SharedPreferences> prefs) {
-    //       var x = prefs.data;
-    //       if (prefs.hasData) {
-    //         final bool? hasLogin = x?.getBool('isLogin');
-    //         if (hasLogin == null) {
-    //           return const MaterialApp(home: HomeScreen());
-    //         }
-    //       }
-    //       return const MaterialApp(home: SignInScreen());
-    //     });
 
   }
 

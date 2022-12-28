@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -555,6 +556,10 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                                     TextField(
                                       controller: _passwordTextEditor,
                                       keyboardType: TextInputType.number,
+                                      inputFormatters: [
+                                        LengthLimitingTextInputFormatter(6),
+                                        FilteringTextInputFormatter.digitsOnly
+                                      ],
                                       style: const TextStyle(color: Colors.white),
                                       decoration: InputDecoration(
                                           enabledBorder: OutlineInputBorder(
