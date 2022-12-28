@@ -1,6 +1,5 @@
 from django.http.response import HttpResponse, JsonResponse
 from django.contrib.auth.models import User, auth
-from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from django.core.exceptions import BadRequest
 from django.views.decorators.csrf import csrf_exempt
@@ -171,6 +170,24 @@ class EmailVerify(APIView):
             else:
                 raise BadRequest("Email id is not in use")
         except Exception as e:
-            logger.info(f"Reset Password Failed ; Reason - {e}")
-            return JsonResponse({'errorCode': 0,
+            logger.info(f"Email Verification Failed ; Reason - {e}")
+            return JsonResponse({'errorCode': 1,
+                    'message': str(e),}, status=202)
+
+
+class AddLoginPin(APIView):
+    def post(self, request):
+        received_json_data=json.loads(request.body)
+        login_token = received_json_data['login_token']
+        login_pin = received_json_data['login_pin']
+        logger.info(f"Add Login Pin Request => login_token: {login_token}")
+
+        try:
+            if str(login_pin).isdigit() and len(str(login_pin)) == 6:
+                pass
+            else:
+                raise BadRequest("INVALID PIN FORMAT")
+        except Exception as e:
+            logger.info(f"Email Verification Failed ; Reason - {e}")
+            return JsonResponse({'errorCode': 1,
                     'message': str(e),}, status=202)
