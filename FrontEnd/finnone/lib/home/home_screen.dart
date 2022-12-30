@@ -6,8 +6,6 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:finnone/assets/backend-api.dart' as backend;
-import 'package:finnone/main/appbarwithicons.dart';
-import 'package:finnone/main/internal_server_error.dart';
 import 'package:finnone/main/show_message.dart';
 import 'package:finnone/main/global.dart';
 
@@ -142,6 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
               askLoginPin =  false;
               asktoCreateLoginPin = false;
             });
+            Navigator.pushReplacementNamed(context, '/main');
           }
         }else {
           SnackBar snackBar = showMessage("Sorry !!", "Something bad happened at our side", Colors.redAccent, 2);
@@ -154,6 +153,23 @@ class _HomeScreenState extends State<HomeScreen> {
         SnackBar snackBar = showMessage("Sorry !!", error.toString(), Colors.redAccent, 2);
         snackbarKey.currentState?.showSnackBar(snackBar);
       }
+    }else{
+      SnackBar snackBar = showMessage("Oh Snaps !!", "Pin doesn't match", Colors.redAccent, 4);
+      snackbarKey.currentState?.showSnackBar(snackBar);
+    }
+    setState(() {
+      showSpinner = false;
+    });
+  }
+
+
+  Future<void> loginSubmit() async{
+    setState(() {
+      showSpinner = true;
+    });
+    if(_loginPin == (_pin1.text.toString() + _pin2.text.toString() + _pin3.text.toString() + _pin4.text.toString() + _pin5.text.toString() + _pin6.text.toString()).toString()){
+      print("Pin verification success");
+      Navigator.pushReplacementNamed(context, '/main');
     }else{
       SnackBar snackBar = showMessage("Oh Snaps !!", "Pin doesn't match", Colors.redAccent, 4);
       snackbarKey.currentState?.showSnackBar(snackBar);
@@ -177,7 +193,22 @@ class _HomeScreenState extends State<HomeScreen> {
       inAsyncCall: showSpinner,
       child: Scaffold(
         backgroundColor: Colors.grey[900],
-        appBar: CustomAppBar(title: const Text('FinnOne'), appBar: AppBar(),),
+        appBar: AppBar(
+          backgroundColor: Colors.grey[850],
+          title: const Text("FinnOne"),
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.logout_rounded),
+              onPressed: () async {
+                //action for user icon button
+                final prefs = await SharedPreferences.getInstance();
+                // Remove data for the 'counter' key.
+                final success = await prefs.remove('loginToken');
+                Navigator.pushReplacementNamed(context, '/');
+              },
+            )
+          ],
+        ),
         body: isLogin == false ? Container() : Container(
           child: Stack(
             children: [
@@ -682,9 +713,281 @@ class _HomeScreenState extends State<HomeScreen> {
                 )
               ]
 
+
+
               else ...[
                 Container(
+                  padding: const EdgeInsets.fromLTRB(20.0, 20.0, 20.0, 0.0),
+                  child: Column(
+                    children: [
+                      const SizedBox(height: 20.0,),
+                      const Text(
+                        "Enter the login Pin",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 30.0,
+                            fontWeight: FontWeight.w700
+                        ),
+                      ),
+                      const SizedBox(height: 30.0,),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          SizedBox(
+                            height: 68,
+                            width: 54,
+                            child: TextField(
+                              controller: _pin1,
+                              onChanged: (value){
+                                if (value.length == 1){
+                                  FocusScope.of(context).nextFocus();
+                                }
+                              },
+                              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(1),
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              textAlign: TextAlign.center,
+                              obscureText: true,
+                              obscuringCharacter: '*',
+                              decoration: InputDecoration(
+                                  hintText: "0",
+                                  hintStyle: const TextStyle(color: Colors.white),
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  )),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 68,
+                            width: 54,
+                            child: TextField(
+                              controller: _pin2,
+                              onChanged: (value){
+                                if (value.length == 1){
+                                  FocusScope.of(context).nextFocus();
+                                }
+                              },
+                              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(1),
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              textAlign: TextAlign.center,
+                              obscureText: true,
+                              obscuringCharacter: '*',
+                              decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  )),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 68,
+                            width: 54,
+                            child: TextField(
+                              controller: _pin3,
+                              onChanged: (value){
+                                if (value.length == 1){
+                                  FocusScope.of(context).nextFocus();
+                                }
+                              },
+                              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(1),
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              textAlign: TextAlign.center,
+                              obscureText: true,
+                              obscuringCharacter: '*',
+                              decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  )),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 68,
+                            width: 54,
+                            child: TextField(
+                              controller: _pin4,
+                              onChanged: (value){
+                                if (value.length == 1){
+                                  FocusScope.of(context).nextFocus();
+                                }
+                              },
+                              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(1),
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              textAlign: TextAlign.center,
+                              obscureText: true,
+                              obscuringCharacter: '*',
+                              decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  )),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 68,
+                            width: 54,
+                            child: TextField(
+                              controller: _pin5,
+                              onChanged: (value){
+                                if (value.length == 1){
+                                  FocusScope.of(context).nextFocus();
+                                }
+                              },
+                              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(1),
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              textAlign: TextAlign.center,
+                              obscureText: true,
+                              obscuringCharacter: '*',
+                              decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  )),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 68,
+                            width: 54,
+                            child: TextField(
+                              controller: _pin6,
+                              onChanged: (value){
+                                if (value.length == 1){
+                                  FocusScope.of(context).nextFocus();
+                                }
+                              },
+                              style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(1),
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              textAlign: TextAlign.center,
+                              obscureText: true,
+                              obscuringCharacter: '*',
+                              decoration: InputDecoration(
+                                  enabledBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                    borderSide: const BorderSide(
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                  border: OutlineInputBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  )),
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 40),
 
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text(
+                            'Verify',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 27,
+                                fontWeight: FontWeight.w700),
+                          ),
+                          CircleAvatar(
+                            radius: 30,
+                            backgroundColor: Colors.grey[850],
+                            child: IconButton(
+                                color: Colors.white,
+                                onPressed: () {
+                                  loginSubmit();
+                                },
+                                icon: const Icon(
+                                  Icons.arrow_forward,
+                                )),
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 40.0,),
+                    ],
+                  ),
                 )
               ]
             ],

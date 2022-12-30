@@ -50,7 +50,7 @@ class MainView(APIView):
         received_json_data=json.loads(request.body)
         login_token = received_json_data['login_token']
         login_pin = received_json_data['login_pin']
-        logger.info(f"Add Login Pin Request => login_token: {login_token}")
+        logger.info(f"Login Pin Submitted: {login_token}")
 
         try:
             if str(login_pin).isdigit() and len(str(login_pin)) == 6:
