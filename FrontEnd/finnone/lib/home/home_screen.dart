@@ -238,6 +238,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
                                 }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
+                                }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
                               keyboardType: TextInputType.number,
@@ -277,6 +280,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
                                 }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
+                                }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
                               keyboardType: TextInputType.number,
@@ -313,6 +319,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               onChanged: (value){
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
+                                }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
                                 }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
@@ -351,6 +360,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
                                 }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
+                                }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
                               keyboardType: TextInputType.number,
@@ -388,6 +400,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
                                 }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
+                                }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
                               keyboardType: TextInputType.number,
@@ -424,6 +439,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               onChanged: (value){
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
+                                }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
                                 }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
@@ -478,6 +496,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
                                 }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
+                                }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
                               keyboardType: TextInputType.number,
@@ -512,6 +533,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               onChanged: (value){
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
+                                }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
                                 }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
@@ -548,6 +572,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
                                 }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
+                                }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
                               keyboardType: TextInputType.number,
@@ -582,6 +609,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               onChanged: (value){
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
+                                }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
                                 }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
@@ -618,6 +648,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
                                 }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
+                                }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
                               keyboardType: TextInputType.number,
@@ -652,6 +685,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               onChanged: (value){
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
+                                }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
                                 }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
@@ -781,6 +817,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
                                 }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
+                                }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
                               keyboardType: TextInputType.number,
@@ -817,6 +856,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               onChanged: (value){
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
+                                }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
                                 }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
@@ -855,6 +897,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
                                 }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
+                                }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
                               keyboardType: TextInputType.number,
@@ -892,6 +937,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
                                 }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
+                                }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
                               keyboardType: TextInputType.number,
@@ -928,6 +976,9 @@ class _HomeScreenState extends State<HomeScreen> {
                               onChanged: (value){
                                 if (value.length == 1){
                                   FocusScope.of(context).nextFocus();
+                                }
+                                if (value.isEmpty){
+                                  FocusScope.of(context).previousFocus();
                                 }
                               },
                               style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 23.0),
