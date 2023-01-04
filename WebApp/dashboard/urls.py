@@ -10,4 +10,5 @@ urlpatterns = [
     path('email-verify/',views.EmailVerify.as_view(), name='email-verify'),
     path('reset-password/',views.ResetPassword.as_view(), name='reset-password'),
     path('add-login-pin/',views.AddLoginPin.as_view(), name='add-login-pin'),
+    path('get-details/',views.GetUserDetails.as_view(), name='get-details'),
 ]

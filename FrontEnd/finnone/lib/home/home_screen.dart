@@ -140,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
               askLoginPin =  false;
               asktoCreateLoginPin = false;
             });
-            Navigator.pushReplacementNamed(context, '/main');
+            Navigator.pushReplacementNamed(context, '/welcome');
           }
         }else {
           SnackBar snackBar = showMessage("Sorry !!", "Something bad happened at our side", Colors.redAccent, 2);

@@ -70,6 +70,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
       request.headers.addAll(headers);
       setState(() {
         showSpinner = false;
+        _showpage = "submitotp";
       });
       try {
         http.StreamedResponse response = await request.send();
@@ -80,16 +81,19 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           if(data["errorCode"] == 1) {
             SnackBar snackBar = showMessage("Sorry !!", data["message"], Colors.redAccent, 2);
             snackbarKey.currentState?.showSnackBar(snackBar);
+            setState(() {
+              _showpage = "email";
+            });
           }else {
             SnackBar snackBar = showMessage("〠 Check MAIL !!", "If you don't receive the OTP in next 2 minutes, \nPlease check the SPAM folder", Colors.blueGrey, 4);
             snackbarKey.currentState?.showSnackBar(snackBar);
-            setState(() {
-              _showpage = "submitotp";
-            });
           }
         }else {
           SnackBar snackBar = showMessage("Sorry !!", "Something bad happened at our side", Colors.redAccent, 2);
           snackbarKey.currentState?.showSnackBar(snackBar);
+          setState(() {
+            _showpage = "email";
+          });
         }
       }on Exception catch (exception) {
         setState(() {
@@ -103,6 +107,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
     }else{
       SnackBar snackBar = showMessage("Wait !!", "Your email id seems wrong", Colors.redAccent, 2);
       snackbarKey.currentState?.showSnackBar(snackBar);
+      setState(() {
+        _showpage = "email";
+      });
     }
   }
 

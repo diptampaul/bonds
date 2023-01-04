@@ -62,3 +62,18 @@ class UserLogin(models.Model):
     login_token = models.CharField(max_length=10, default=None, null=True)
     login_time = models.DateTimeField(auto_now_add=True)
     last_login_time = models.DateTimeField(null=True)
+
+class Wallet(models.Model):
+    user_id = models.ForeignKey(Profile, to_field='user_id', on_delete=models.CASCADE)
+    wallet_id = models.AutoField(primary_key=True)
+    wallet_balance = models.DecimalField(max_digits=8, decimal_places=2, default=0.0)
+
+
+class WalletTransaction(models.Model):
+    wallet_id = models.ForeignKey(Wallet, to_field='wallet_id', on_delete=models.CASCADE)
+    description = models.TextField(blank=True, null=True)
+    amount = models.DecimalField(max_digits=8, decimal_places=2)
+    updated_balance = models.DecimalField(max_digits=8, decimal_places=2)
+    isDeposit = models.BooleanField(default=True)
+    isWithdraw = models.BooleanField(default=False)
+    timestamp = models.DateTimeField(auto_now_add=True)

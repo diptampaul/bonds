@@ -198,3 +198,38 @@ class AddLoginPin(APIView):
             logger.info(f"Email Verification Failed ; Reason - {e}")
             return JsonResponse({'errorCode': 1,
                     'message': str(e),}, status=202)
+
+
+class GetUserDetails(APIView):
+    def post(self, request):
+        received_json_data=json.loads(request.body)
+        login_token = received_json_data['login_token']
+        logger.info(f"Profile Page Clicked => login_token: {login_token}")
+
+        try:
+            login_obj = UserLogin.objects.get(login_token=login_token)
+            profile_obj = Profile.objects.get(user_id=login_obj.user_id.user_id)
+            profile_image = profile_obj.photo
+            email = profile_obj.email
+            first_name = profile_obj.first_name
+
+            #Wallet Balance
+            wallet_obj = Wallet.objects.filter(user_id=profile_obj)
+            if not wallet_obj:
+                wallet_obj = Wallet(user_id=profile_obj, wallet_balance=0.0)
+                wallet_obj.save()
+            wallet_balance = wallet_obj.wallet_balance
+
+            #KYC Details
+
+            return JsonResponse({'errorCode': 0,
+                'image_url': str(profile_image),
+                'email': email,
+                'first_name': first_name,
+                'wallet_balance': wallet_balance,
+                'message': "Pin Created Successfully",}, status=202)
+                
+        except Exception as e:
+            logger.info(f"User Details Fetching failed ; Reason - {e}")
+            return JsonResponse({'errorCode': 1,
+                    'message': str(e),}, status=202)

@@ -1,14 +1,8 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:http/http.dart' as http;
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:fluentui_system_icons/fluentui_system_icons.dart';
 
-import 'package:finnone/assets/backend-api.dart' as backend;
-import 'package:finnone/main/show_message.dart';
-import 'package:finnone/main/appbarwithicons.dart';
-import 'package:finnone/main/global.dart';
+import 'package:finnone/home/profile_screen.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -25,7 +19,7 @@ class _MainScreenState extends State<MainScreen> {
     const Text("Bonds"),
     const Text("Insurance"),
     const Text("Investments"),
-    const Text("Profile"),
+    const ProfileScreen(),
   ];
   void navButtonTap(int index){
     setState(() {
@@ -49,6 +43,7 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(icon: Icon(FluentIcons.inprivate_account_28_regular), activeIcon: Icon(FluentIcons.inprivate_account_28_filled), label: "PROFILE"),
         ],
           currentIndex: _selected_index,
+          type: BottomNavigationBarType.shifting,
           onTap: navButtonTap,
           elevation: 10,
           showSelectedLabels: false,
